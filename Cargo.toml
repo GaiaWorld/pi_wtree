@@ -1,0 +1,10 @@
+[package]
+name = "pi_wtree"
+version = "0.1.0"
+authors = ["suncy <suncy@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+pi_time = {path="../pi_time"}
+rand = "0.5.4"
+pi_dyn_uint = {path="../pi_dyn_uint"}
