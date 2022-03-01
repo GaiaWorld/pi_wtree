@@ -1,12 +1,12 @@
 //! 权重树的核心逻辑
 //! 提供插入、删除、弹出的等主要接口
-//! 另外，使用了UintFactory，关于UintFactory，你可以看看其作用https://github.com/GaiaWorld/pi_lib/tree/master/dyn_uint
+//! 另外，使用了UintFactory，关于UintFactory，你可以看看其作用https://github.com/GaiaWorld/pi_lib/tree/master/pi_dyn_uint
 use std::fmt::{Debug, Formatter, Result as FResult};
 use std::mem::transmute_copy;
 use std::ptr::write;
 use std::ops::Drop;
 
-use dyn_uint::{UintFactory};
+use pi_dyn_uint::{UintFactory};
 
 /// 权重树
 pub struct WeightTree<T>(Vec<Item<T>>);

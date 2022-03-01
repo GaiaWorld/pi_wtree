@@ -69,9 +69,7 @@
 //! random=1; 取到2左节点， 1 <= 1, 弹出2左节点;
 //! 
 
-extern crate dyn_uint;
-#[cfg(test)]
-extern crate time;
+extern crate pi_dyn_uint;
 #[cfg(test)]
 extern crate rand;
 

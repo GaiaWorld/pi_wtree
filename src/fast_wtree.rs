@@ -253,33 +253,31 @@ impl<T: Debug> Debug for WeightTree<T> where T: Debug {
 }
 
 #[cfg(test)]
-use time::now_millisecond;
-#[cfg(test)]
 use rand::Rng;
 
 #[test]
 fn test_effic(){
 	let mut weight_tree: WeightTree<u32> = WeightTree::new();
 	let max = 100000;
-	let now = now_millisecond();
+	let now = std::time::Instant::now();
 	for i in 0..max{
 		weight_tree.push(i, (i+1) as usize);
 	}
-	println!("fast_wtree: push max_heap time{}",  now_millisecond() - now);
+	println!("fast_wtree: push max_heap time{:?}",  std::time::Instant::now() - now);
 
-	let now = now_millisecond();
+	let now = std::time::Instant::now();
 	for _ in 0..max{
 		rand::thread_rng().gen_range(0, 100000);
 	}
-	println!("fast_wtree: rand time{}",  now_millisecond() - now);
+	println!("fast_wtree: rand time{:?}",  std::time::Instant::now() - now);
 
 
-	let now = now_millisecond();
+	let now = std::time::Instant::now();
 	for _ in 0..max{
 		let r = rand::thread_rng().gen_range(0, weight_tree.amount());
 		weight_tree.pop(r);
 	}
-	println!("fast_wtree: remove_by_weight time{}",  now_millisecond() - now);
+	println!("fast_wtree: remove_by_weight time{:?}",  std::time::Instant::now() - now);
 
 	//let r = rand::thread_rng().gen_range(0, amount);
 }
